@@ -37,11 +37,20 @@ if (sessionCookie) {
 							<span class="text-2xl font-bold text-white">Hồi Ức Tuổi Thơ</span>
 						</a>
 					</div>
-					<div class="flex items-center space-x-4">
+					
+					<!-- Mobile menu button -->
+					<button id="mobileMenuButton" class="md:hidden text-gray-300 hover:text-white">
+						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+						</svg>
+					</button>
+
+					<!-- Desktop menu -->
+					<div class="hidden md:flex items-center space-x-4">
 						<a href="/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
 							Trang chủ
 						</a>
-						<div id="authButtons">
+						<div id="authButtons" class="flex items-center space-x-4">
 							<a href="/login" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
 								Đăng nhập
 							</a>
@@ -53,6 +62,32 @@ if (sessionCookie) {
 							<img id="userAvatar" src="" alt="Avatar" class="w-8 h-8 rounded-full" />
 							<span id="userName" class="text-gray-300"></span>
 							<button id="logoutButton" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+								Đăng xuất
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<!-- Mobile menu -->
+				<div id="mobileMenu" class="hidden md:hidden pb-4">
+					<div class="flex flex-col space-y-2">
+						<a href="/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+							Trang chủ
+						</a>
+						<div id="mobileAuthButtons" class="flex flex-col space-y-2">
+							<a href="/login" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+								Đăng nhập
+							</a>
+							<a href="/register" class="bg-[#00ff9d] text-black hover:bg-[#00cc7d] px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+								Đăng ký
+							</a>
+						</div>
+						<div id="mobileUserInfo" class="hidden flex flex-col space-y-2">
+							<div class="flex items-center space-x-3 px-3 py-2">
+								<img id="mobileUserAvatar" src="" alt="Avatar" class="w-8 h-8 rounded-full" />
+								<span id="mobileUserName" class="text-gray-300"></span>
+							</div>
+							<button id="mobileLogoutButton" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-left">
 								Đăng xuất
 							</button>
 						</div>
@@ -91,21 +126,45 @@ if (sessionCookie) {
 	const userName = document.getElementById('userName');
 	const logoutButton = document.getElementById('logoutButton');
 
+	// Mobile elements
+	const mobileAuthButtons = document.getElementById('mobileAuthButtons');
+	const mobileUserInfo = document.getElementById('mobileUserInfo');
+	const mobileUserAvatar = document.getElementById('mobileUserAvatar') as HTMLImageElement;
+	const mobileUserName = document.getElementById('mobileUserName');
+	const mobileLogoutButton = document.getElementById('mobileLogoutButton');
+	const mobileMenuButton = document.getElementById('mobileMenuButton');
+	const mobileMenu = document.getElementById('mobileMenu');
+
 	if (user) {
 		// Đã đăng nhập
 		authButtons?.classList.add('hidden');
 		userInfo?.classList.remove('hidden');
+		mobileAuthButtons?.classList.add('hidden');
+		mobileUserInfo?.classList.remove('hidden');
+		
 		if (userAvatar) userAvatar.src = user.avatar || 'https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/1.jpg';
 		if (userName) userName.textContent = user.name;
+		if (mobileUserAvatar) mobileUserAvatar.src = user.avatar || 'https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/1.jpg';
+		if (mobileUserName) mobileUserName.textContent = user.name;
 	} else {
 		// Chưa đăng nhập
 		authButtons?.classList.remove('hidden');
 		userInfo?.classList.add('hidden');
+		mobileAuthButtons?.classList.remove('hidden');
+		mobileUserInfo?.classList.add('hidden');
 	}
 
 	// Xử lý đăng xuất
-	logoutButton?.addEventListener('click', () => {
+	const handleLogout = () => {
 		localStorage.removeItem('user');
 		window.location.href = '/';
+	};
+
+	logoutButton?.addEventListener('click', handleLogout);
+	mobileLogoutButton?.addEventListener('click', handleLogout);
+
+	// Xử lý mobile menu
+	mobileMenuButton?.addEventListener('click', () => {
+		mobileMenu?.classList.toggle('hidden');
 	});
 </script>

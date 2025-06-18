@@ -2,23 +2,23 @@
   {
     "id": 1,
     "title": "Doraemon",
-    "image": "https://i.ytimg.com/vi/8XGQvXgQvXg/maxresdefault.jpg",
+    "image": "/images/doraemon.png",
     "rating": 9.5,
     "shortDescription": "Câu chuyện về chú mèo máy Doraemon đến từ thế kỷ 22 để giúp đỡ cậu bé Nobita.",
     "description": "Doraemon là một chú mèo máy đến từ thế kỷ 22, được gửi về quá khứ để giúp đỡ cậu bé Nobita. Với những bảo bối thần kỳ từ chiếc túi thần kỳ, Doraemon giúp Nobita vượt qua những khó khăn trong cuộc sống và học tập. Bộ phim không chỉ mang đến tiếng cười mà còn chứa đựng những bài học quý giá về tình bạn, lòng dũng cảm và sự kiên trì.",
-    "watchLink": "https://www.youtube.com/watch?v=8XGQvXgQvXg",
-    "channel": "Fuji TV",
+    "watchLink": "https://www.youtube.com/results?search_query=doraemon",
+    "channel": "Youtube",
     "genres": ["Hài hước", "Gia đình", "Phiêu lưu"]
   },
   {
     "id": 2,
     "title": "Shin - Cậu Bé Bút Chì",
-    "image": "https://i.ytimg.com/vi/8XGQvXgQvXg/maxresdefault.jpg",
+    "image": "/images/shin.png",
     "rating": 9.0,
     "shortDescription": "Câu chuyện về cậu bé Shin và những trò nghịch ngợm của cậu.",
     "description": "Shin là một cậu bé 5 tuổi với tính cách nghịch ngợm và đáng yêu. Cậu luôn gây ra những tình huống dở khóc dở cười trong gia đình và trường học. Bộ phim khắc họa cuộc sống thường ngày của một gia đình Nhật Bản thông qua góc nhìn hài hước của cậu bé Shin.",
-    "watchLink": "https://www.youtube.com/watch?v=8XGQvXgQvXg",
-    "channel": "TV Asahi",
+    "watchLink": "https://www.youtube.com/results?search_query=shin+c%E1%BA%ADu+b%C3%A9+b%C3%BAt+ch%C3%AC",
+    "channel": "Youtube",
     "genres": ["Hài hước", "Gia đình", "Đời thường"]
   }
 ] 
