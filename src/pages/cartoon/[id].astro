@@ -1,0 +1,92 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CommentSection from '../../components/CommentSection.astro';
+import cartoons from '../../data/cartoons.json';
+
+interface Cartoon {
+  id: number;
+  title: string;
+  image: string;
+  rating: number;
+  shortDescription: string;
+  description?: string;
+  watchLink?: string;
+  channel?: string;
+  genres?: string[];
+}
+
+interface Props {
+  cartoon: Cartoon;
+}
+
+export async function getStaticPaths() {
+  return (cartoons as Cartoon[]).map((cartoon) => ({
+    params: { id: cartoon.id.toString() },
+    props: { cartoon },
+  }));
+}
+
+const { cartoon } = Astro.props;
+---
+
+<Layout title={cartoon.title}>
+  <main class="container mx-auto px-4 py-8">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-[#111111] rounded-lg overflow-hidden shadow-lg">
+        <div class="relative">
+          <img
+            src={cartoon.image}
+            alt={cartoon.title}
+            class="w-full h-[400px] object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-6">
+            <h1 class="text-3xl font-bold text-white mb-2">{cartoon.title}</h1>
+            <div class="flex items-center space-x-4">
+              <div class="flex items-center">
+                <span class="text-[#00ff9d] mr-2">★</span>
+                <span class="text-white">{cartoon.rating}</span>
+              </div>
+              {cartoon.channel && (
+                <span class="text-gray-400">{cartoon.channel}</span>
+              )}
+            </div>
+          </div>
+        </div>
+
+        <div class="p-6">
+          <div class="prose prose-invert max-w-none">
+            <p class="text-gray-300">
+              {cartoon.description || cartoon.shortDescription}
+            </p>
+          </div>
+
+          {cartoon.genres && cartoon.genres.length > 0 && (
+            <div class="mt-4 flex flex-wrap gap-2">
+              {cartoon.genres.map((genre) => (
+                <span class="px-3 py-1 bg-[#1a1a1a] text-[#00ff9d] rounded-full text-sm">
+                  {genre}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {cartoon.watchLink && (
+            <div class="mt-6">
+              <a
+                href={cartoon.watchLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-block px-6 py-3 bg-[#00ff9d] text-black rounded-lg hover:bg-[#00cc7d] transition-colors"
+              >
+                Xem phim
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+
+      <CommentSection cartoonId={cartoon.id.toString()} />
+    </div>
+  </main>
+</Layout> 

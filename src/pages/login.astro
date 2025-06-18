@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const success = Astro.url.searchParams.get('success');
+const message = success === 'registered' ? 'Đăng ký thành công! Vui lòng đăng nhập' : '';
+---
+
+<Layout title="Đăng nhập - Hồi Ức Tuổi Thơ">
+  <main class="container mx-auto px-4 py-8">
+    <div class="max-w-md mx-auto">
+      <h1 class="text-3xl font-bold text-center mb-8">Đăng nhập</h1>
+      
+      <form id="loginForm" class="bg-[#111111] p-6 rounded-lg shadow-lg border border-gray-800">
+        <div class="mb-4">
+          <label for="username" class="block text-white mb-2">Tên đăng nhập</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="w-full px-4 py-2 bg-[#1a1a1a] border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00ff9d] focus:border-transparent"
+            required
+          />
+        </div>
+        
+        <div class="mb-6">
+          <label for="password" class="block text-white mb-2">Mật khẩu</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="w-full px-4 py-2 bg-[#1a1a1a] border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00ff9d] focus:border-transparent"
+            required
+          />
+        </div>
+        
+        <button
+          type="submit"
+          class="w-full bg-[#00ff9d] text-black py-2 rounded-lg hover:bg-[#00cc7d] transition-colors"
+        >
+          Đăng nhập
+        </button>
+      </form>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  const LOGIN_API = 'https://6852d2450594059b23cf3bfc.mockapi.io/api/login';
+  
+  document.getElementById('loginForm')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const username = (document.getElementById('username') as HTMLInputElement).value;
+    const password = (document.getElementById('password') as HTMLInputElement).value;
+    
+    try {
+      const response = await fetch(LOGIN_API);
+      const users = await response.json();
+      
+      const user = users.find((u: any) => u.name === username && u.password === password);
+      
+      if (user) {
+        // Lưu thông tin người dùng vào localStorage
+        localStorage.setItem('user', JSON.stringify({
+          id: user.id,
+          name: user.name,
+          avatar: user.avatar
+        }));
+        
+        // Chuyển hướng về trang chủ
+        window.location.href = '/';
+      } else {
+        alert('Tên đăng nhập hoặc mật khẩu không đúng');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Có lỗi xảy ra, vui lòng thử lại sau');
+    }
+  });
+</script> 

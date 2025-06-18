@@ -1,0 +1,156 @@
+---
+import fs from 'fs/promises';
+import path from 'path';
+
+interface Props {
+  cartoonId: string;
+}
+
+const { cartoonId } = Astro.props;
+
+// Đọc comments từ file JSON
+const commentsPath = path.join(process.cwd(), 'src/data/comments.json');
+const commentsData = await fs.readFile(commentsPath, 'utf-8');
+const comments = JSON.parse(commentsData);
+
+// Lọc comments cho cartoon hiện tại
+const cartoonComments = comments.comments.filter((c: any) => c.cartoonId === cartoonId);
+---
+
+<div class="mt-8">
+  <h3 class="text-xl font-bold text-white mb-4">Bình luận</h3>
+  
+  <div id="commentForm" class="mb-6">
+    <div class="flex items-start space-x-4">
+      <div id="userAvatar" class="w-10 h-10 rounded-full bg-[#00ff9d] flex items-center justify-center text-black font-bold flex-shrink-0">
+      </div>
+      <div class="flex-1">
+        <textarea
+          id="commentContent"
+          rows="3"
+          class="w-full px-4 py-2 bg-[#1a1a1a] border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00ff9d] focus:border-transparent"
+          placeholder="Viết bình luận của bạn..."
+          required
+        ></textarea>
+        <div class="mt-2 flex justify-end">
+          <button
+            id="submitComment"
+            class="px-4 py-2 bg-[#00ff9d] text-black rounded-lg hover:bg-[#00cc7d] transition-colors"
+          >
+            Gửi bình luận
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="loginPrompt" class="mb-6 p-4 bg-[#1a1a1a] rounded-lg border border-gray-700">
+    <p class="text-gray-400">
+      Vui lòng <a href="/login" class="text-[#00ff9d] hover:text-[#00cc7d]">đăng nhập</a> để bình luận
+    </p>
+  </div>
+
+  <div id="commentsList" class="space-y-4">
+    <!-- Comments will be loaded here -->
+  </div>
+</div>
+
+<script define:vars={{ cartoonId }}>
+  const COMMENTS_API = 'https://6852d6620594059b23cf4dd0.mockapi.io/api/comments';
+  
+  // Check login status
+  const checkLoginStatus = () => {
+    const userData = localStorage.getItem('user');
+    const commentForm = document.getElementById('commentForm');
+    const loginPrompt = document.getElementById('loginPrompt');
+    const userAvatar = document.getElementById('userAvatar');
+    
+    if (userData) {
+      const user = JSON.parse(userData);
+      commentForm?.classList.remove('hidden');
+      loginPrompt?.classList.add('hidden');
+      if (userAvatar) {
+        userAvatar.textContent = user.name.charAt(0).toUpperCase();
+      }
+    } else {
+      commentForm?.classList.add('hidden');
+      loginPrompt?.classList.remove('hidden');
+    }
+  };
+
+  // Load comments
+  const loadComments = async () => {
+    try {
+      const response = await fetch(COMMENTS_API);
+      const comments = await response.json();
+      const commentsList = document.getElementById('commentsList');
+      
+      if (commentsList) {
+        commentsList.innerHTML = comments.length ? comments.map((comment) => `
+          <div class="bg-[#111111] p-4 rounded-lg border border-gray-800">
+            <div class="flex items-center space-x-3 mb-2">
+              <div class="w-8 h-8 rounded-full bg-[#00ff9d] flex items-center justify-center text-black font-bold">
+                ${comment.name.charAt(0).toUpperCase()}
+              </div>
+              <span class="text-[#00ff9d] font-medium">${comment.name}</span>
+              <span class="text-gray-500 text-sm">
+                ${new Date(comment.createdAt).toLocaleDateString('vi-VN')}
+              </span>
+            </div>
+            <p class="text-gray-300">${comment.content}</p>
+          </div>
+        `).join('') : '<p class="text-gray-400 text-center py-4">Chưa có bình luận nào</p>';
+      }
+    } catch (error) {
+      console.error('Error loading comments:', error);
+    }
+  };
+
+  // Handle comment submission
+  const handleCommentSubmit = async () => {
+    const userData = localStorage.getItem('user');
+    if (!userData) return;
+
+    const commentContent = document.getElementById('commentContent') as HTMLTextAreaElement;
+    const content = commentContent.value.trim();
+    
+    if (!content) {
+      alert('Vui lòng nhập nội dung bình luận');
+      return;
+    }
+
+    try {
+      const user = JSON.parse(userData);
+      const response = await fetch(COMMENTS_API, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: user.name,
+          content,
+          createdAt: new Date().toISOString()
+        }),
+      });
+
+      if (response.ok) {
+        commentContent.value = '';
+        loadComments();
+      }
+    } catch (error) {
+      console.error('Error posting comment:', error);
+      alert('Có lỗi xảy ra, vui lòng thử lại sau');
+    }
+  };
+
+  // Initialize
+  document.addEventListener('DOMContentLoaded', () => {
+    checkLoginStatus();
+    loadComments();
+    
+    const submitButton = document.getElementById('submitComment');
+    if (submitButton) {
+      submitButton.addEventListener('click', handleCommentSubmit);
+    }
+  });
+</script> 

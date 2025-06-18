@@ -1,11 +1,25 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import CartoonCard from '../components/CartoonCard.astro';
+import cartoons from '../data/cartoons.json';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Hồi Ức Tuổi Thơ - Trang chủ">
+	<main class="container mx-auto px-4 py-8">
+		<h1 class="text-4xl font-bold text-center mb-8">Hồi Ức Tuổi Thơ</h1>
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+			{cartoons.map((cartoon) => (
+				<CartoonCard
+					title={cartoon.title}
+					image={cartoon.image}
+					rating={cartoon.rating}
+					shortDescription={cartoon.shortDescription}
+					id={cartoon.id}
+				/>
+			))}
+		</div>
+	</main>
 </Layout>

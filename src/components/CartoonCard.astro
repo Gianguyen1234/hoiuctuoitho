@@ -1,0 +1,34 @@
+---
+interface Props {
+  title: string;
+  image: string;
+  rating: number;
+  shortDescription: string;
+  id: number;
+}
+
+const { title, image, rating, shortDescription, id } = Astro.props;
+---
+
+<div class="bg-[#111111] rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-[#333] h-[400px] flex flex-col group">
+  <div class="relative h-48">
+    <img src={image} alt={title} class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+    <div class="absolute top-2 right-2 bg-[#00ff9d] text-black px-3 py-1 rounded-md font-medium shadow-lg">
+      <div class="flex items-center">
+        <span>★</span>
+        <span class="ml-1">{rating.toFixed(1)}</span>
+      </div>
+    </div>
+  </div>
+  <div class="p-4 flex-1 flex flex-col">
+    <h3 class="text-xl font-semibold mb-2 text-white group-hover:text-[#00ff9d] transition-colors">{title}</h3>
+    <p class="text-gray-400 mb-4 line-clamp-3 flex-1">{shortDescription}</p>
+    <a
+      href={`/cartoon/${id}`}
+      class="mt-auto inline-block bg-[#00ff9d] text-black font-medium px-6 py-2 rounded-md hover:bg-[#00cc7d] transition-colors"
+    >
+      Xem chi tiết
+    </a>
+  </div>
+</div> 
