@@ -23,32 +23,6 @@ npm run build
 npm run preview
 ```
 
-## 🌐 Deploy lên GitHub Pages
-1. **Cài đặt**: Đảm bảo đã cài [gh-pages](https://www.npmjs.com/package/gh-pages)
-```bash
-npm install --save-dev gh-pages
-```
-2. **Cấu hình file `astro.config.mjs`**:
-```js
-export default defineConfig({
-  // ...
-  site: 'https://<your-github-username>.github.io/<repo-name>/',
-  outDir: './dist',
-  // ...
-});
-```
-3. **Thêm script vào `package.json`**:
-```json
-"scripts": {
-  "deploy": "astro build && gh-pages -d dist"
-}
-```
-4. **Deploy:**
-```bash
-npm run deploy
-```
-5. **Bật GitHub Pages** trong repo, chọn branch `gh-pages` và thư mục `/`.
-
 ## 👤 Tác giả & Liên hệ
 - Holy_Dev (Gianguyen1234)
 - Facebook: https://www.facebook.com/profile.php?id=61575273337943
