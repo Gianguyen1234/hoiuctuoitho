@@ -1,48 +1,62 @@
-# Astro Starter Kit: Basics
+# Hồi Ức Tuổi Thơ
 
-```sh
-npm create astro@latest -- --template basics
+Website lưu giữ và chia sẻ những bộ phim hoạt hình, ký ức tuổi thơ của thế hệ 8x, 9x, 2k Việt Nam.
+
+## 🌟 Tính năng nổi bật
+- Danh sách phim hoạt hình kinh điển, cập nhật liên tục
+- Xem mô tả, thông tin chi tiết từng bộ phim
+- Bình luận, chia sẻ cảm xúc về từng bộ phim (không cần đăng nhập)
+- Giao diện đẹp, tối ưu cho cả máy tính và điện thoại
+- Trang giới thiệu về tác giả Holy_Dev
+
+## 🚀 Khởi động dự án
+
+```bash
+npm install
+npm run dev
+```
+Truy cập: http://localhost:4321
+
+## 🛠 Build production
+```bash
+npm run build
+npm run preview
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+## 🌐 Deploy lên GitHub Pages
+1. **Cài đặt**: Đảm bảo đã cài [gh-pages](https://www.npmjs.com/package/gh-pages)
+```bash
+npm install --save-dev gh-pages
 ```
+2. **Cấu hình file `astro.config.mjs`**:
+```js
+export default defineConfig({
+  // ...
+  site: 'https://<your-github-username>.github.io/<repo-name>/',
+  outDir: './dist',
+  // ...
+});
+```
+3. **Thêm script vào `package.json`**:
+```json
+"scripts": {
+  "deploy": "astro build && gh-pages -d dist"
+}
+```
+4. **Deploy:**
+```bash
+npm run deploy
+```
+5. **Bật GitHub Pages** trong repo, chọn branch `gh-pages` và thư mục `/`.
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 👤 Tác giả & Liên hệ
+- Holy_Dev (Gianguyen1234)
+- Facebook: https://www.facebook.com/profile.php?id=61575273337943
+- YouTube: https://www.youtube.com/@dev-maniac2349
+- Website: https://thaonguyen-portfolio.vercel.app/
 
-## 🧞 Commands
+## 🤝 Đóng góp
+Mọi đóng góp, ý tưởng, PR đều được chào đón!
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
+**Hồi Ức Tuổi Thơ** – Nơi lưu giữ những ký ức đẹp về tuổi thơ của bạn!
