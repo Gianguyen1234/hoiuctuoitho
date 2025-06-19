@@ -1,170 +1,196 @@
 ---
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
 
 // Lấy thông tin session từ cookie
-const sessionCookie = Astro.cookies.get('session')?.value;
+const sessionCookie = Astro.cookies.get("session")?.value;
 let user = null;
 if (sessionCookie) {
-	try {
-		user = JSON.parse(sessionCookie);
-	} catch (e) {
-		console.error('Error parsing session cookie:', e);
-	}
+  try {
+    user = JSON.parse(sessionCookie);
+  } catch (e) {
+    console.error("Error parsing session cookie:", e);
+  }
 }
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-	</head>
-	<body class="bg-[#0a0a0a] text-gray-100 min-h-screen font-['Inter']">
-		<nav class="bg-[#111111] shadow-lg sticky top-0 z-50 backdrop-blur-sm bg-opacity-90">
-			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div class="flex justify-between h-16">
-					<div class="flex items-center">
-						<a href="/" class="flex items-center space-x-2">
-							<span class="text-2xl">🎬</span>
-							<span class="text-2xl font-bold text-white">Hồi Ức Tuổi Thơ</span>
-						</a>
-					</div>
-					
-					<!-- Mobile menu button -->
-					<button id="mobileMenuButton" class="md:hidden text-gray-300 hover:text-white">
-						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-						</svg>
-					</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- Favicon cho nhiều định dạng và kích thước -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#00ff9d" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-[#0a0a0a] text-gray-100 min-h-screen font-['Inter']">
+    <nav
+      class="bg-[#111111] shadow-lg sticky top-0 z-50 backdrop-blur-sm bg-opacity-90"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex items-center">
+            <a href="/" class="flex items-center space-x-2">
+              <span class="text-2xl">🎬</span>
+              <span class="text-2xl font-bold text-white">Hồi Ức Tuổi Thơ</span>
+            </a>
+          </div>
 
-					<!-- Desktop menu -->
-					<div class="hidden md:flex items-center space-x-4">
-						<a href="/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-							Trang chủ
-						</a>
-						<div id="authButtons" class="flex items-center space-x-4">
-							<a href="/login" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-								Đăng nhập
-							</a>
-							<a href="/register" class="bg-[#00ff9d] text-black hover:bg-[#00cc7d] px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-								Đăng ký
-							</a>
-						</div>
-						<div id="userInfo" class="hidden flex items-center space-x-3">
-							<img id="userAvatar" src="" alt="Avatar" class="w-8 h-8 rounded-full" />
-							<span id="userName" class="text-gray-300"></span>
-							<button id="logoutButton" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-								Đăng xuất
-							</button>
-						</div>
-					</div>
-				</div>
+          <!-- Mobile menu button -->
+          <button
+            id="mobileMenuButton"
+            class="md:hidden text-gray-300 hover:text-white"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
 
-				<!-- Mobile menu -->
-				<div id="mobileMenu" class="hidden md:hidden pb-4">
-					<div class="flex flex-col space-y-2">
-						<a href="/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-							Trang chủ
-						</a>
-						<div id="mobileAuthButtons" class="flex flex-col space-y-2">
-							<a href="/login" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-								Đăng nhập
-							</a>
-							<a href="/register" class="bg-[#00ff9d] text-black hover:bg-[#00cc7d] px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-								Đăng ký
-							</a>
-						</div>
-						<div id="mobileUserInfo" class="hidden flex flex-col space-y-2">
-							<div class="flex items-center space-x-3 px-3 py-2">
-								<img id="mobileUserAvatar" src="" alt="Avatar" class="w-8 h-8 rounded-full" />
-								<span id="mobileUserName" class="text-gray-300"></span>
-							</div>
-							<button id="mobileLogoutButton" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-left">
-								Đăng xuất
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</nav>
+          <!-- Desktop menu -->
+          <div class="hidden md:flex items-center space-x-4">
+            <a
+              href="/"
+              class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+            >
+              Trang chủ
+            </a>
+            <a
+              href="/about"
+              class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+            >
+              Giới thiệu
+            </a>
+          </div>
+        </div>
 
-		<slot />
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden pb-4">
+          <div class="flex flex-col space-y-2">
+            <a
+              href="/"
+              class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+            >
+              Trang chủ
+            </a>
+            <a
+              href="/about"
+              class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+            >
+              Giới thiệu
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
 
-		<footer class="bg-[#111111] border-t border-[#333] mt-8">
-			<div class="container mx-auto px-4 py-6">
-				<div class="text-center">
-					<p class="text-[#00ff9d] font-medium mb-2">© 2025 Hồi Ức Tuổi Thơ</p>
-					<p class="text-gray-400">Nơi lưu giữ những kỷ niệm đẹp về tuổi thơ của chúng ta</p>
-				</div>
-			</div>
-		</footer>
-	</body>
+    <slot />
+
+    <footer class="bg-[#111111] border-t border-[#333] mt-8">
+      <div class="container mx-auto px-4 py-6">
+        <div class="text-center">
+          <p class="text-[#00ff9d] font-medium mb-2">© 2025 Hồi Ức Tuổi Thơ</p>
+          <p class="text-gray-400">
+            Nơi lưu giữ những kỷ niệm đẹp về tuổi thơ của chúng ta
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
 
 <style is:global>
-	body {
-		background-image: 
-			radial-gradient(circle at 25% 25%, rgba(0, 255, 157, 0.05) 0%, transparent 50%),
-			radial-gradient(circle at 75% 75%, rgba(0, 255, 157, 0.05) 0%, transparent 50%);
-	}
+  body {
+    background-image: radial-gradient(
+        circle at 25% 25%,
+        rgba(0, 255, 157, 0.05) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 75% 75%,
+        rgba(0, 255, 157, 0.05) 0%,
+        transparent 50%
+      );
+  }
 </style>
 
 <script>
-	// Kiểm tra trạng thái đăng nhập
-	const user = JSON.parse(localStorage.getItem('user') || 'null');
-	const authButtons = document.getElementById('authButtons');
-	const userInfo = document.getElementById('userInfo');
-	const userAvatar = document.getElementById('userAvatar') as HTMLImageElement;
-	const userName = document.getElementById('userName');
-	const logoutButton = document.getElementById('logoutButton');
+  // Kiểm tra trạng thái đăng nhập
+  const user = JSON.parse(localStorage.getItem("user") || "null");
+  const authButtons = document.getElementById("authButtons");
+  const userInfo = document.getElementById("userInfo");
+  const userAvatar = document.getElementById("userAvatar") as HTMLImageElement;
+  const userName = document.getElementById("userName");
+  const logoutButton = document.getElementById("logoutButton");
 
-	// Mobile elements
-	const mobileAuthButtons = document.getElementById('mobileAuthButtons');
-	const mobileUserInfo = document.getElementById('mobileUserInfo');
-	const mobileUserAvatar = document.getElementById('mobileUserAvatar') as HTMLImageElement;
-	const mobileUserName = document.getElementById('mobileUserName');
-	const mobileLogoutButton = document.getElementById('mobileLogoutButton');
-	const mobileMenuButton = document.getElementById('mobileMenuButton');
-	const mobileMenu = document.getElementById('mobileMenu');
+  // Mobile elements
+  const mobileAuthButtons = document.getElementById("mobileAuthButtons");
+  const mobileUserInfo = document.getElementById("mobileUserInfo");
+  const mobileUserAvatar = document.getElementById(
+    "mobileUserAvatar"
+  ) as HTMLImageElement;
+  const mobileUserName = document.getElementById("mobileUserName");
+  const mobileLogoutButton = document.getElementById("mobileLogoutButton");
+  const mobileMenuButton = document.getElementById("mobileMenuButton");
+  const mobileMenu = document.getElementById("mobileMenu");
 
-	if (user) {
-		// Đã đăng nhập
-		authButtons?.classList.add('hidden');
-		userInfo?.classList.remove('hidden');
-		mobileAuthButtons?.classList.add('hidden');
-		mobileUserInfo?.classList.remove('hidden');
-		
-		if (userAvatar) userAvatar.src = user.avatar || 'https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/1.jpg';
-		if (userName) userName.textContent = user.name;
-		if (mobileUserAvatar) mobileUserAvatar.src = user.avatar || 'https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/1.jpg';
-		if (mobileUserName) mobileUserName.textContent = user.name;
-	} else {
-		// Chưa đăng nhập
-		authButtons?.classList.remove('hidden');
-		userInfo?.classList.add('hidden');
-		mobileAuthButtons?.classList.remove('hidden');
-		mobileUserInfo?.classList.add('hidden');
-	}
+  if (user) {
+    // Đã đăng nhập
+    authButtons?.classList.add("hidden");
+    userInfo?.classList.remove("hidden");
+    mobileAuthButtons?.classList.add("hidden");
+    mobileUserInfo?.classList.remove("hidden");
 
-	// Xử lý đăng xuất
-	const handleLogout = () => {
-		localStorage.removeItem('user');
-		window.location.href = '/';
-	};
+    if (userAvatar)
+      userAvatar.src =
+        user.avatar ||
+        "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/1.jpg";
+    if (userName) userName.textContent = user.name;
+    if (mobileUserAvatar)
+      mobileUserAvatar.src =
+        user.avatar ||
+        "https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/1.jpg";
+    if (mobileUserName) mobileUserName.textContent = user.name;
+  } else {
+    // Chưa đăng nhập
+    authButtons?.classList.remove("hidden");
+    userInfo?.classList.add("hidden");
+    mobileAuthButtons?.classList.remove("hidden");
+    mobileUserInfo?.classList.add("hidden");
+  }
 
-	logoutButton?.addEventListener('click', handleLogout);
-	mobileLogoutButton?.addEventListener('click', handleLogout);
+  // Xử lý đăng xuất
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    window.location.href = "/";
+  };
 
-	// Xử lý mobile menu
-	mobileMenuButton?.addEventListener('click', () => {
-		mobileMenu?.classList.toggle('hidden');
-	});
+  logoutButton?.addEventListener("click", handleLogout);
+  mobileLogoutButton?.addEventListener("click", handleLogout);
+
+  // Xử lý mobile menu
+  mobileMenuButton?.addEventListener("click", () => {
+    mobileMenu?.classList.toggle("hidden");
+  });
 </script>

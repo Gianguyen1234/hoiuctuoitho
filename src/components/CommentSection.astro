@@ -22,8 +22,6 @@ const cartoonComments = comments.comments.filter((c: any) => c.cartoonId === car
   
   <div id="commentForm" class="mb-6">
     <div class="flex items-start space-x-4">
-      <div id="userAvatar" class="w-10 h-10 rounded-full bg-[#00ff9d] flex items-center justify-center text-black font-bold flex-shrink-0">
-      </div>
       <div class="flex-1">
         <textarea
           id="commentContent"
@@ -44,12 +42,6 @@ const cartoonComments = comments.comments.filter((c: any) => c.cartoonId === car
     </div>
   </div>
 
-  <div id="loginPrompt" class="mb-6 p-4 bg-[#1a1a1a] rounded-lg border border-gray-700">
-    <p class="text-gray-400">
-      Vui lòng <a href="/login" class="text-[#00ff9d] hover:text-[#00cc7d]">đăng nhập</a> để bình luận
-    </p>
-  </div>
-
   <div id="commentsList" class="space-y-4">
     <!-- Comments will be loaded here -->
   </div>
@@ -58,26 +50,6 @@ const cartoonComments = comments.comments.filter((c: any) => c.cartoonId === car
 <script define:vars={{ cartoonId }}>
   const COMMENTS_API = 'https://6852d6620594059b23cf4dd0.mockapi.io/api/comments';
   
-  // Check login status
-  const checkLoginStatus = () => {
-    const userData = localStorage.getItem('user');
-    const commentForm = document.getElementById('commentForm');
-    const loginPrompt = document.getElementById('loginPrompt');
-    const userAvatar = document.getElementById('userAvatar');
-    
-    if (userData) {
-      const user = JSON.parse(userData);
-      commentForm?.classList.remove('hidden');
-      loginPrompt?.classList.add('hidden');
-      if (userAvatar) {
-        userAvatar.textContent = user.name.charAt(0).toUpperCase();
-      }
-    } else {
-      commentForm?.classList.add('hidden');
-      loginPrompt?.classList.remove('hidden');
-    }
-  };
-
   // Load comments
   const loadComments = async () => {
     try {
@@ -88,16 +60,8 @@ const cartoonComments = comments.comments.filter((c: any) => c.cartoonId === car
       if (commentsList) {
         commentsList.innerHTML = comments.length ? comments.map((comment) => `
           <div class="bg-[#111111] p-4 rounded-lg border border-gray-800">
-            <div class="flex items-center space-x-3 mb-2">
-              <div class="w-8 h-8 rounded-full bg-[#00ff9d] flex items-center justify-center text-black font-bold">
-                ${comment.name.charAt(0).toUpperCase()}
-              </div>
-              <span class="text-[#00ff9d] font-medium">${comment.name}</span>
-              <span class="text-gray-500 text-sm">
-                ${new Date(comment.createdAt).toLocaleDateString('vi-VN')}
-              </span>
-            </div>
             <p class="text-gray-300">${comment.content}</p>
+            <span class="text-gray-500 text-xs block mt-1">${new Date(comment.createdAt).toLocaleDateString('vi-VN')}</span>
           </div>
         `).join('') : '<p class="text-gray-400 text-center py-4">Chưa có bình luận nào</p>';
       }
@@ -108,31 +72,24 @@ const cartoonComments = comments.comments.filter((c: any) => c.cartoonId === car
 
   // Handle comment submission
   const handleCommentSubmit = async () => {
-    const userData = localStorage.getItem('user');
-    if (!userData) return;
-
-    const commentContent = document.getElementById('commentContent') as HTMLTextAreaElement;
+    const commentContent = document.getElementById('commentContent');
     const content = commentContent.value.trim();
-    
     if (!content) {
       alert('Vui lòng nhập nội dung bình luận');
       return;
     }
-
     try {
-      const user = JSON.parse(userData);
       const response = await fetch(COMMENTS_API, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name: user.name,
+          name: '', // Không cần tên
           content,
           createdAt: new Date().toISOString()
         }),
       });
-
       if (response.ok) {
         commentContent.value = '';
         loadComments();
@@ -145,9 +102,7 @@ const cartoonComments = comments.comments.filter((c: any) => c.cartoonId === car
 
   // Initialize
   document.addEventListener('DOMContentLoaded', () => {
-    checkLoginStatus();
     loadComments();
-    
     const submitButton = document.getElementById('submitComment');
     if (submitButton) {
       submitButton.addEventListener('click', handleCommentSubmit);
