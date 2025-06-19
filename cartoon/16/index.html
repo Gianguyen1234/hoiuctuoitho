@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="vi"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><!-- Favicon cho nhiều định dạng và kích thước --><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#00ff9d"><meta name="generator" content="Astro v4.16.18"><title>Đấu sĩ LBX</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/_astro/about.Bj3JOqkp.css"><script type="module">const e=JSON.parse(localStorage.getItem("user")||"null"),t=document.getElementById("authButtons"),n=document.getElementById("userInfo"),o=document.getElementById("userAvatar"),s=document.getElementById("userName"),c=document.getElementById("logoutButton"),d=document.getElementById("mobileAuthButtons"),l=document.getElementById("mobileUserInfo"),a=document.getElementById("mobileUserAvatar"),m=document.getElementById("mobileUserName"),r=document.getElementById("mobileLogoutButton"),u=document.getElementById("mobileMenuButton"),g=document.getElementById("mobileMenu");e?(t?.classList.add("hidden"),n?.classList.remove("hidden"),d?.classList.add("hidden"),l?.classList.remove("hidden"),o&&(o.src=e.avatar||"https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/1.jpg"),s&&(s.textContent=e.name),a&&(a.src=e.avatar||"https://cdn.jsdelivr.net/gh/faker-js/assets-person-portrait/male/512/1.jpg"),m&&(m.textContent=e.name)):(t?.classList.remove("hidden"),n?.classList.add("hidden"),d?.classList.remove("hidden"),l?.classList.add("hidden"));const i=()=>{localStorage.removeItem("user"),window.location.href="/"};c?.addEventListener("click",i);r?.addEventListener("click",i);u?.addEventListener("click",()=>{g?.classList.toggle("hidden")});
+</script></head> <body class="bg-[#0a0a0a] text-gray-100 min-h-screen font-['Inter']"> <nav class="bg-[#111111] shadow-lg sticky top-0 z-50 backdrop-blur-sm bg-opacity-90"> <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> <div class="flex justify-between h-16"> <div class="flex items-center"> <a href="/" class="flex items-center space-x-2"> <span class="text-2xl">🎬</span> <span class="text-2xl font-bold text-white">Hồi Ức Tuổi Thơ</span> </a> </div> <!-- Mobile menu button --> <button id="mobileMenuButton" class="md:hidden text-gray-300 hover:text-white"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> <!-- Desktop menu --> <div class="hidden md:flex items-center space-x-4"> <a href="/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+Trang chủ
+</a> <a href="/about" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+Giới thiệu
+</a> </div> </div> <!-- Mobile menu --> <div id="mobileMenu" class="hidden md:hidden pb-4"> <div class="flex flex-col space-y-2"> <a href="/" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+Trang chủ
+</a> <a href="/about" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+Giới thiệu
+</a> </div> </div> </div> </nav>  <main class="container mx-auto px-4 py-8"> <div class="max-w-4xl mx-auto"> <div class="bg-[#111111] rounded-lg overflow-hidden shadow-lg"> <div class="relative"> <img src="/images/lbx.png" alt="Đấu sĩ LBX" class="w-full h-[400px] object-cover"> <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div> <div class="absolute bottom-0 left-0 right-0 p-6"> <h1 class="text-3xl font-bold text-white mb-2">Đấu sĩ LBX</h1> <div class="flex items-center space-x-4"> <div class="flex items-center"> <span class="text-[#00ff9d] mr-2">★</span> <span class="text-white">9.6</span> </div> <span class="text-gray-400">Youtube</span> </div> </div> </div> <div class="p-6"> <div class="prose prose-invert max-w-none"> <p class="text-gray-300"> Đấu sĩ LBX kể về các trận chiến hấp dẫn giữa những robot LBX nhỏ bé nhưng mạnh mẽ, cùng các chủ nhân trẻ tuổi thông minh, dũng cảm. </p> </div> <div class="mt-4 flex flex-wrap gap-2"> <span class="px-3 py-1 bg-[#1a1a1a] text-[#00ff9d] rounded-full text-sm"> Hành động </span><span class="px-3 py-1 bg-[#1a1a1a] text-[#00ff9d] rounded-full text-sm"> Khoa học viễn tưởng </span><span class="px-3 py-1 bg-[#1a1a1a] text-[#00ff9d] rounded-full text-sm"> Thiếu nhi </span> </div> <div class="mt-6"> <a href="https://www.youtube.com/results?search_query=lbx+anime" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 bg-[#00ff9d] text-black rounded-lg hover:bg-[#00cc7d] transition-colors">
+Xem phim
+</a> </div> </div> </div> <div class="mt-8"> <h3 class="text-xl font-bold text-white mb-4">Bình luận</h3> <div id="commentForm" class="mb-6"> <div class="flex items-start space-x-4"> <div class="flex-1"> <textarea id="commentContent" rows="3" class="w-full px-4 py-2 bg-[#1a1a1a] border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00ff9d] focus:border-transparent" placeholder="Viết bình luận của bạn..." required></textarea> <div class="mt-2 flex justify-end"> <button id="submitComment" class="px-4 py-2 bg-[#00ff9d] text-black rounded-lg hover:bg-[#00cc7d] transition-colors">
+Gửi bình luận
+</button> </div> </div> </div> </div> <div id="commentsList" class="space-y-4"> <!-- Comments will be loaded here --> </div> </div> <script>(function(){const cartoonId = "16";
+
+  const COMMENTS_API = 'https://6852d6620594059b23cf4dd0.mockapi.io/api/comments';
+  
+  // Load comments
+  const loadComments = async () => {
+    try {
+      const response = await fetch(COMMENTS_API);
+      const comments = await response.json();
+      const commentsList = document.getElementById('commentsList');
+      
+      if (commentsList) {
+        commentsList.innerHTML = comments.length ? comments.map((comment) => `
+          <div class="bg-[#111111] p-4 rounded-lg border border-gray-800">
+            <p class="text-gray-300">${comment.content}</p>
+            <span class="text-gray-500 text-xs block mt-1">${new Date(comment.createdAt).toLocaleDateString('vi-VN')}</span>
+          </div>
+        `).join('') : '<p class="text-gray-400 text-center py-4">Chưa có bình luận nào</p>';
+      }
+    } catch (error) {
+      console.error('Error loading comments:', error);
+    }
+  };
+
+  // Handle comment submission
+  const handleCommentSubmit = async () => {
+    const commentContent = document.getElementById('commentContent');
+    const content = commentContent.value.trim();
+    if (!content) {
+      alert('Vui lòng nhập nội dung bình luận');
+      return;
+    }
+    try {
+      const response = await fetch(COMMENTS_API, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: '', // Không cần tên
+          content,
+          createdAt: new Date().toISOString()
+        }),
+      });
+      if (response.ok) {
+        commentContent.value = '';
+        loadComments();
+      }
+    } catch (error) {
+      console.error('Error posting comment:', error);
+      alert('Có lỗi xảy ra, vui lòng thử lại sau');
+    }
+  };
+
+  // Initialize
+  document.addEventListener('DOMContentLoaded', () => {
+    loadComments();
+    const submitButton = document.getElementById('submitComment');
+    if (submitButton) {
+      submitButton.addEventListener('click', handleCommentSubmit);
+    }
+  });
+})();</script> </div> </main>  <footer class="bg-[#111111] border-t border-[#333] mt-8"> <div class="container mx-auto px-4 py-6"> <div class="text-center"> <p class="text-[#00ff9d] font-medium mb-2">© 2025 Hồi Ức Tuổi Thơ</p> <p class="text-gray-400">
+Nơi lưu giữ những kỷ niệm đẹp về tuổi thơ của chúng ta
+</p> </div> </div> </footer>  </body></html>
