@@ -14,7 +14,7 @@ const { title, image, rating, shortDescription, id } = Astro.props;
   <div class="bg-[#141414] rounded-lg overflow-hidden shadow-xl h-full flex flex-col">
     <div class="relative h-[280px]">
       <img
-        src={image}
+        src={`/${image}`}
         alt={title}
         class="w-full h-full object-cover"
       />
