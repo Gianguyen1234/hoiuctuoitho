@@ -76,6 +76,8 @@
     "channel": "Youtube",
     "genres": ["Hành động", "Khoa học viễn tưởng", "Thiếu nhi"]
   },
+
+  
   {
     "id": 1,
     "title": "Doraemon",
@@ -97,5 +99,82 @@
     "watchLink": "https://www.youtube.com/results?search_query=shin+c%E1%BA%ADu+b%C3%A9+b%C3%BAt+ch%C3%AC",
     "channel": "Youtube",
     "genres": ["Hài hước", "Gia đình", "Đời thường"]
+  },
+  {
+    "id": 17,
+    "title": "Bảy Viên Ngọc Rồng",
+    "image": "/images/7vienngocrong.png",
+    "rating": 9.7,
+    "shortDescription": "Cuộc phiêu lưu tìm kiếm ngọc rồng và những trận chiến huyền thoại.",
+    "description": "Bảy Viên Ngọc Rồng (Dragon Ball) kể về hành trình của Songoku cùng bạn bè đi tìm ngọc rồng, đối đầu với những kẻ thù mạnh mẽ và bảo vệ Trái Đất.",
+    "watchLink": "https://www.youtube.com/results?search_query=dragon+ball+vietsub",
+    "channel": "Youtube",
+    "genres": ["Hành động", "Phiêu lưu", "Khoa học viễn tưởng"]
+  },
+  {
+    "id": 18,
+    "title": "Bakugan – Chiến Binh Bakugan",
+    "image": "/images/bakugan.png",
+    "rating": 9.3,
+    "shortDescription": "Những trận chiến Bakugan gay cấn giữa các chiến binh trẻ tuổi.",
+    "description": "Bakugan kể về các chiến binh trẻ tuổi sử dụng những quả cầu Bakugan để chiến đấu, bảo vệ thế giới khỏi các thế lực đen tối.",
+    "watchLink": "https://www.youtube.com/results?search_query=bakugan+vietsub",
+    "channel": "Youtube",
+    "genres": ["Hành động", "Phiêu lưu", "Thiếu nhi"]
+  },
+  {
+    "id": 19,
+    "title": "Seer - Anh Hùng Vũ Trụ",
+    "image": "/images/seer.png",
+    "rating": 8.8,
+    "shortDescription": "Những anh hùng nhí bảo vệ vũ trụ khỏi thế lực xấu xa.",
+    "description": "Seer là bộ phim hoạt hình nổi tiếng Trung Quốc về các anh hùng nhí cùng nhau chiến đấu chống lại kẻ thù ngoài hành tinh để bảo vệ vũ trụ.",
+    "watchLink": "https://www.youtube.com/results?search_query=seer+anh+hung+vu+tru",
+    "channel": "Youtube",
+    "genres": ["Hành động", "Khoa học viễn tưởng", "Thiếu nhi"]
+  },
+  {
+    "id": 20,
+    "title": "Na Tra Truyền Kỳ",
+    "image": "/images/natra.png",
+    "rating": 9.1,
+    "shortDescription": "Hành trình trưởng thành và chiến đấu của thần đồng Na Tra.",
+    "description": "Na Tra Truyền Kỳ kể về cuộc đời, những trận chiến và sự trưởng thành của Na Tra – một trong những nhân vật thần thoại nổi tiếng Trung Quốc.",
+    "watchLink": "https://www.youtube.com/results?search_query=na+tra+truyen+ky",
+    "channel": "Youtube",
+    "genres": ["Thần thoại", "Phiêu lưu", "Thiếu nhi"]
+  },
+  {
+    "id": 21,
+    "title": "Công Chúa Ori",
+    "image": "/images/congchuaori.png",
+    "rating": 8.7,
+    "shortDescription": "Những cuộc phiêu lưu kỳ thú của công chúa Ori và bạn bè.",
+    "description": "Công Chúa Ori là bộ phim hoạt hình Việt Nam kể về hành trình khám phá, học hỏi và trưởng thành của công chúa Ori cùng những người bạn thân thiết.",
+    "watchLink": "https://www.youtube.com/results?search_query=công+chúa+ori",
+    "channel": "Youtube",
+    "genres": ["Phiêu lưu", "Thiếu nhi", "Gia đình"]
+  },
+  {
+    "id": 22,
+    "title": "Đấu Trường Yoyo",
+    "image": "/images/dautruongyoyo.png",
+    "rating": 9.0,
+    "shortDescription": "Những trận đấu yoyo hấp dẫn và kịch tính.",
+    "description": "Đấu Trường Yoyo kể về các tuyển thủ trẻ tuổi tham gia những giải đấu yoyo, vượt qua thử thách và phát triển bản thân.",
+    "watchLink": "https://www.youtube.com/results?search_query=dau+truong+yoyo",
+    "channel": "Youtube",
+    "genres": ["Cạnh tranh", "Thiếu nhi", "Hành động"]
+  },
+  {
+    "id": 23,
+    "title": "Sakura Thủ Lĩnh Thẻ Bài",
+    "image": "/images/sakura.png",
+    "rating": 9.4,
+    "shortDescription": "Cô bé Sakura thu phục các thẻ bài phép thuật.",
+    "description": "Sakura Thủ Lĩnh Thẻ Bài kể về hành trình của Sakura cùng bạn bè thu phục các thẻ bài Clow, bảo vệ thế giới khỏi những hiểm họa phép thuật.",
+    "watchLink": "https://www.youtube.com/results?search_query=sakura+thu+linh+the+bai",
+    "channel": "Youtube",
+    "genres": ["Phép thuật", "Phiêu lưu", "Thiếu nhi"]
   }
-] 
+]
