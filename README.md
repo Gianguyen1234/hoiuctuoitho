@@ -7,7 +7,6 @@ Website lưu giữ và chia sẻ những bộ phim hoạt hình, ký ức tuổi
 - Xem mô tả, thông tin chi tiết từng bộ phim
 - Bình luận, chia sẻ cảm xúc về từng bộ phim (không cần đăng nhập)
 - Giao diện đẹp, tối ưu cho cả máy tính và điện thoại
-- Trang giới thiệu về tác giả Holy_Dev
 
 ## 🚀 Khởi động dự án
 
