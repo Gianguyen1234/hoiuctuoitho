@@ -10,11 +10,11 @@ interface Props {
 const { title, image, rating, shortDescription, id } = Astro.props;
 ---
 
-<a href={`/cartoon/${id}`} class="block h-[400px]">
+<a href={`${import.meta.env.BASE_URL}cartoon/${id}`} class="block h-[400px]">
   <div class="bg-[#141414] rounded-lg overflow-hidden shadow-xl h-full flex flex-col">
     <div class="relative h-[280px]">
       <img
-        src={`/${image}`}
+        src={`${import.meta.env.BASE_URL}${image}`}
         alt={title}
         class="w-full h-full object-cover"
       />
