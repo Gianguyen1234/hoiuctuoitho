@@ -180,7 +180,7 @@
   {
     "id": 24,
     "title": "Conan – Cậu Bé Tương Lai",
-    "image": "/images/conan-cau-be-tuong-lai.png",
+    "image": "/images/conan.png",
     "rating": 9.2,
     "shortDescription": "Cuộc phiêu lưu của Conan trong thế giới hậu tận thế.",
     "description": "Conan – Cậu Bé Tương Lai kể về hành trình sinh tồn và khám phá của Conan cùng bạn bè trong một thế giới bị tàn phá sau chiến tranh.",
@@ -234,11 +234,11 @@
   },
   {
     "id": 29,
-    "title": "Zinba Siêu Thú Huyền Thoại",
+    "title": "Zinba",
     "image": "/images/zinba.png",
     "rating": 9.0,
     "shortDescription": "Những trận chiến hấp dẫn giữa các Zinba và chủ nhân.",
-    "description": "Zinba Siêu Thú Huyền Thoại kể về các chủ nhân cùng Zinba chiến đấu bảo vệ thế giới khỏi thế lực đen tối.",
+    "description": "Zinba kể về các chủ nhân cùng Zinba chiến đấu bảo vệ thế giới khỏi thế lực đen tối.",
     "watchLink": "https://www.youtube.com/results?search_query=zinba+siêu+thú+huyền+thoại",
     "channel": "Youtube",
     "genres": ["Hành động", "Phiêu lưu", "Thiếu nhi"]
@@ -246,7 +246,7 @@
   {
     "id": 30,
     "title": "Thần Xe Siêu Tốc",
-    "image": "/images/thanxesiutoc.png",
+    "image": "/images/thanxe.png",
     "rating": 8.9,
     "shortDescription": "Những cuộc đua xe siêu tốc kịch tính.",
     "description": "Thần Xe Siêu Tốc là bộ phim hoạt hình về những chiếc xe đua tốc độ cao và các tay đua trẻ tuổi đầy nhiệt huyết.",
