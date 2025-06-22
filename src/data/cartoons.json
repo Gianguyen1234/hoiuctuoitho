@@ -176,5 +176,93 @@
     "watchLink": "https://www.youtube.com/results?search_query=sakura+thu+linh+the+bai",
     "channel": "Youtube",
     "genres": ["Phép thuật", "Phiêu lưu", "Thiếu nhi"]
+  },
+  {
+    "id": 24,
+    "title": "Conan – Cậu Bé Tương Lai",
+    "image": "/images/conan-cau-be-tuong-lai.png",
+    "rating": 9.2,
+    "shortDescription": "Cuộc phiêu lưu của Conan trong thế giới hậu tận thế.",
+    "description": "Conan – Cậu Bé Tương Lai kể về hành trình sinh tồn và khám phá của Conan cùng bạn bè trong một thế giới bị tàn phá sau chiến tranh.",
+    "watchLink": "https://www.youtube.com/results?search_query=conan+cậu+bé+tương+lai",
+    "channel": "Youtube",
+    "genres": ["Phiêu lưu", "Khoa học viễn tưởng", "Thiếu nhi"]
+  },
+  {
+    "id": 25,
+    "title": "Hồ Lô Biến",
+    "image": "/images/holobien.png",
+    "rating": 9.0,
+    "shortDescription": "Bảy anh em hồ lô chiến đấu chống lại yêu quái.",
+    "description": "Hồ Lô Biến là bộ phim hoạt hình Trung Quốc nổi tiếng kể về bảy anh em hồ lô với sức mạnh đặc biệt cùng nhau tiêu diệt yêu quái.",
+    "watchLink": "https://www.youtube.com/results?search_query=hồ+lô+biến",
+    "channel": "Youtube",
+    "genres": ["Hành động", "Thần thoại", "Thiếu nhi"]
+  },
+  {
+    "id": 26,
+    "title": "Cuộc Phiêu Lưu Của Tin Tin",
+    "image": "/images/tintin.png",
+    "rating": 9.1,
+    "shortDescription": "Những chuyến phiêu lưu kỳ thú của phóng viên Tin Tin.",
+    "description": "Cuộc Phiêu Lưu Của Tin Tin kể về những chuyến đi mạo hiểm, phá án và khám phá bí ẩn của phóng viên trẻ tuổi Tin Tin cùng chú chó Snowy.",
+    "watchLink": "https://www.youtube.com/results?search_query=cuộc+phiêu+lưu+của+tin+tin",
+    "channel": "Youtube",
+    "genres": ["Phiêu lưu", "Hành động", "Thiếu nhi"]
+  },
+  {
+    "id": 27,
+    "title": "Cừu Vui Vẻ Và Sói Xám",
+    "image": "/images/cuuvuivevasoixam.png",
+    "rating": 8.8,
+    "shortDescription": "Những màn rượt đuổi hài hước giữa cừu và sói.",
+    "description": "Cừu Vui Vẻ Và Sói Xám là bộ phim hoạt hình Trung Quốc nổi tiếng với những tình huống hài hước giữa đàn cừu thông minh và sói xám lém lỉnh.",
+    "watchLink": "https://www.youtube.com/results?search_query=cừu+vui+vẻ+và+sói+xám",
+    "channel": "Youtube",
+    "genres": ["Hài hước", "Thiếu nhi", "Gia đình"]
+  },
+  {
+    "id": 28,
+    "title": "Tít Và Mít",
+    "image": "/images/titvamit.png",
+    "rating": 8.5,
+    "shortDescription": "Những câu chuyện hài hước của hai bạn nhỏ Tít và Mít.",
+    "description": "Tít Và Mít là bộ phim hoạt hình Việt Nam kể về những trò nghịch ngợm, hài hước và bài học ý nghĩa của hai bạn nhỏ Tít và Mít.",
+    "watchLink": "https://www.youtube.com/results?search_query=tít+và+mít",
+    "channel": "Youtube",
+    "genres": ["Hài hước", "Thiếu nhi", "Gia đình"]
+  },
+  {
+    "id": 29,
+    "title": "Zinba Siêu Thú Huyền Thoại",
+    "image": "/images/zinba.png",
+    "rating": 9.0,
+    "shortDescription": "Những trận chiến hấp dẫn giữa các Zinba và chủ nhân.",
+    "description": "Zinba Siêu Thú Huyền Thoại kể về các chủ nhân cùng Zinba chiến đấu bảo vệ thế giới khỏi thế lực đen tối.",
+    "watchLink": "https://www.youtube.com/results?search_query=zinba+siêu+thú+huyền+thoại",
+    "channel": "Youtube",
+    "genres": ["Hành động", "Phiêu lưu", "Thiếu nhi"]
+  },
+  {
+    "id": 30,
+    "title": "Thần Xe Siêu Tốc",
+    "image": "/images/thanxesiutoc.png",
+    "rating": 8.9,
+    "shortDescription": "Những cuộc đua xe siêu tốc kịch tính.",
+    "description": "Thần Xe Siêu Tốc là bộ phim hoạt hình về những chiếc xe đua tốc độ cao và các tay đua trẻ tuổi đầy nhiệt huyết.",
+    "watchLink": "https://www.youtube.com/results?search_query=thần+xe+siêu+tốc",
+    "channel": "Youtube",
+    "genres": ["Hành động", "Cạnh tranh", "Thiếu nhi"]
+  },
+  {
+    "id": 31,
+    "title": "Chiến Cơ Siêu Hạng",
+    "image": "/images/chiencosieuhang.png",
+    "rating": 8.7,
+    "shortDescription": "Những trận chiến trên không của các chiến cơ siêu hạng.",
+    "description": "Chiến Cơ Siêu Hạng kể về các phi công trẻ tuổi điều khiển chiến cơ hiện đại, chiến đấu bảo vệ hòa bình thế giới.",
+    "watchLink": "https://www.youtube.com/results?search_query=chiến+cơ+siêu+hạng",
+    "channel": "Youtube",
+    "genres": ["Hành động", "Khoa học viễn tưởng", "Thiếu nhi"]
   }
 ]
